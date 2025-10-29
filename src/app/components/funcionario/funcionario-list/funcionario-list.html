@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="h2">Funcionários</h1>
+    <button class="btn btn-primary" (click)="add()">
+        Novo Funcionário
+    </button>
+</div>
+
+<div *ngIf="loading" class="text-center">
+    <div class="spinner-border" role="status"></div>
+</div>
+
+<div class="table-responsive" *ngIf="!loading">
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Setor</th>
+                <th>Projetos</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let f of funcionarios">
+                <td>{{ f.id }}</td>
+                <td>{{ f.nome }}</td>
+                <td>{{ f.setor?.nome || '—' }}</td>
+                <td>{{ f.projetos?.length || 0 }}</td>
+                <td>
+                    <button class="btn btn-sm btn-outline-primary me-1" (click)="edit(f.id!)">
+                        Editar
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger" (click)="delete(f.id!)">
+                        Excluir
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

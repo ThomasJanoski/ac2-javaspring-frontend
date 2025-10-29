@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Setores</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <button class="btn btn-sm btn-outline-secondary" (click)="addSetor()">
+            <i class="bi bi-plus"></i> Novo Setor
+        </button>
+    </div>
+</div>
+
+<div class="table-responsive" *ngIf="!loading">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Nº Funcionários</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let setor of setores">
+                <td>{{ setor.id }}</td>
+                <td>{{ setor.nome }}</td>
+                <td>{{ setor.funcionarios?.length || 0 }}</td>
+                <td>
+                    <button class="btn btn-sm btn-primary me-1" (click)="editSetor(setor.id)">
+                        <i class="bi bi-pencil"></i> Editar
+                    </button>
+                    <button class="btn btn-sm btn-danger" (click)="deleteSetor(setor.id)">
+                        <i class="bi bi-trash"></i> Excluir
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div *ngIf="loading" class="text-center">
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Carregando...</span>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+.navbar-brand {
+    font-size: 1.4rem;
+}
+
+.navbar-brand svg {
+    color: #fff;
+}
+
+.dropdown-menu {
+    min-width: 150px;
+}

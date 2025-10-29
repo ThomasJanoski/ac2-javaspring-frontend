@@ -1,0 +1,31 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="h2">Projetos</h1>
+    <button class="btn btn-primary" (click)="add()">Novo Projeto</button>
+</div>
+
+<div *ngIf="loading" class="text-center">
+    <div class="spinner-border"></div>
+</div>
+
+<div class="row" *ngIf="!loading">
+    <div class="col-md-6 col-lg-4 mb-3" *ngFor="let p of projetos">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">{{ p.descricao }}</h5>
+                <p class="card-text">
+                    <strong>Início:</strong> {{ p.dataInicio }}<br>
+                    <strong>Fim:</strong> {{ p.dataFim }}<br>
+                    <strong>Equipe:</strong> {{ p.funcionarios?.length || 0 }} pessoas
+                </p>
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-sm btn-outline-primary" (click)="edit(p.id!)">
+                    Editar
+                </button>
+                <button class="btn btn-sm btn-outline-danger" (click)="delete(p.id!)">
+                    Excluir
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
