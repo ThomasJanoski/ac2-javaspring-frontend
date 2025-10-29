@@ -1,5 +1,4 @@
-# AC2 - Arquitetura e Aplicações WEB
-## Frontend
+# AC2 - Arquitetura e Aplicações WEB (Frontend)
 
 ## Alunos:
 ### Guilherme Augusto Estefani Souza - 237306
