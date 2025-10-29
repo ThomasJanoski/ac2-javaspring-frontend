@@ -41,7 +41,7 @@ export class ProjetoListComponent implements OnInit {
     if (confirm('Excluir projeto?')) {
       this.projetoService.delete(id).subscribe({
         next: () => this.loadProjetos(),
-        error: (err) => alert(err.error.message)
+        error: (err) => console.error(err.error.message)
       });
     }
   }

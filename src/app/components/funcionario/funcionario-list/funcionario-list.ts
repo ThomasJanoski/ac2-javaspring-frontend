@@ -44,7 +44,7 @@ export class FuncionarioListComponent implements OnInit {
     if (confirm('Tem certeza que deseja excluir este funcionário?')) {
       this.funcionarioService.delete(id).subscribe({
         next: () => this.loadFuncionarios(),
-        error: (err) => alert('Erro: ' + err.error.message)
+        error: (err) => console.error(err.error.message)
       });
     }
   }
